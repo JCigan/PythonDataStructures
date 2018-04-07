@@ -40,6 +40,7 @@ class DoublyLinkedList:
             try:
                 currentNode = currentNode.nextNode
             except AttributeError:
+                # Raise an error?
                 print('Linked list index out of range!')
                 return
         newNode = Node(data, currentNode, currentNode.nextNode)
@@ -57,6 +58,9 @@ class DoublyLinkedList:
         if self._non_empty_list():
             self.head = self.head.nextNode
             self.head.previousNode = None
+        else:
+            # Raise an error?
+            print('List is empty!')
 
     def remove_from_index(self, index):
         pass
@@ -68,14 +72,12 @@ class Queue(DoublyLinkedList):
 
     def __init__(self):
         super().__init__()
+        # Perhaps a much better way to do next part?
         for method in [
             'add_at_beginning', 'remove_from_index', 'remove_at_end',
             'traverse', '_traverse_helper'
         ]:
             del method
-
-
-
 
 
 if __name__ == '__main__':
